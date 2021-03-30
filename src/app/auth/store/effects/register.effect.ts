@@ -9,6 +9,7 @@ import {
   registerSuccessAction,
 } from "src/app/auth/store/actions/register.action";
 import { CurrentUserInterface } from "src/app/shared/types/current-user.interface";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Injectable()
 export class RegisterEffect {
@@ -20,7 +21,9 @@ export class RegisterEffect {
           map((currentUser: CurrentUserInterface) =>
             registerSuccessAction({ currentUser })
           ),
-          catchError(() => of(registerFailureAction))
+          catchError((errorResponse: HttpErrorResponse) =>
+            of(registerFailureAction({ errors: errorResponse.error.errors }))
+          )
         )
       )
     )

@@ -9,6 +9,7 @@ import { reducer } from "src/app/auth/store/reducers";
 import { AuthService } from "src/app/auth/services/auth.service";
 import { EffectsModule } from "@ngrx/effects";
 import { RegisterEffect } from "src/app/auth/store/effects/register.effect";
+import { BackendErrorMessageModule } from "src/app/shared/modules/backend-error-message/mackend-error-message.module";
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     StoreModule.forFeature("auth", reducer),
     EffectsModule.forFeature([RegisterEffect]),
+    BackendErrorMessageModule,
   ],
   declarations: [RegisterComponent],
   providers: [AuthService],
