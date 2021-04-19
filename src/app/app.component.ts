@@ -1,9 +1,15 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { getCurrentUserAction } from "src/app/auth/store/actions/get-current-user.action";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
 })
-export class AppComponent {
-  title = "my-app";
+export class AppComponent implements OnInit {
+  constructor(private store: Store) {}
+
+  ngOnInit(): void {
+    this.store.dispatch(getCurrentUserAction());
+  }
 }
