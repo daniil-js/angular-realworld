@@ -33,7 +33,7 @@ export const feedReducer = createReducer(
     getFeedAction,
     (state): FeedStateInterface => ({
       ...state,
-      isLoading: false,
+      isLoading: true,
     })
   )
 );
