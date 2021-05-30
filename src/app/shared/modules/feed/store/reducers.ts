@@ -16,7 +16,7 @@ export const feedReducer = createReducer(
   on(
     getFeedAction,
     (state): FeedStateInterface => ({
-      ...state,
+      ...initialState,
       isLoading: true,
     })
   ),
