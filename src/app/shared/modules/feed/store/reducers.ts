@@ -4,7 +4,6 @@ import {
   getFeedAction,
   getFeedSuccessAction,
 } from "src/app/shared/modules/feed/store/actions/actions";
-import { AuthStateInterface } from "src/app/auth/types/auth-state.interface";
 
 const initialState: FeedStateInterface = {
   isLoading: false,
